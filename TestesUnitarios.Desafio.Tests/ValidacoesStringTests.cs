@@ -9,11 +9,10 @@ public class ValidacoesStringTests
     [Fact]
     public void DeveRetornar6QuantidadeCaracteresDaPalavraMatrix()
     {
-        //TODO: Corrigir a variável "texto" e "resultadoEsperado" da seção Arrange
-
+        //TODO: Corrigir a variável "texto" e "resultadoEsperado" da seção Arrange {OK}
         // Arrange
-        var texto = "a";
-        var resultadoEsperado = 0;
+        var texto = "Matrix";
+        var resultadoEsperado = texto.Length;
 
         // Act
         var resultado = _validacoes.RetornarQuantidadeCaracteres(texto);
@@ -23,19 +22,19 @@ public class ValidacoesStringTests
     }
 
     [Fact]
-    public void DeveContemAPalavraQualquerNoTexto()
+    public void DeveConterAPalavraQualquerNoTexto()
     {
         // Arrange
         var texto = "Esse é um texto qualquer";
         var textoProcurado = "qualquer";
 
-        //TODO: Corrigir a chamada do método "ContemCaractere" da seção Act
+        //TODO: Corrigir a chamada do método "ContemCaractere" da seção Act {OK}
         // Act
-         _validacoes.ContemCaractere(texto, textoProcurado);
+         bool ContemCaractereOEsperado = _validacoes.ContemCaractere(texto, textoProcurado);
 
         // Assert
-        //TODO: Corrigir o Assert.True com base no retorno da chamada ao método
-        Assert.True(true);
+        //TODO: Corrigir o Assert.True com base no retorno da chamada ao método {OK}
+        Assert.True(ContemCaractereOEsperado);
     }
 
     [Fact]
@@ -49,18 +48,20 @@ public class ValidacoesStringTests
         var resultado = _validacoes.ContemCaractere(texto, textoProcurado);
 
         // Assert
-        //TODO: Corrigir o Assert.False com base no retorno da chamada ao método
-        Assert.False(true);
+        //TODO: Corrigir o Assert.False com base no retorno da chamada ao método {OK}
+        Assert.False(resultado); //ele irá retornar false se não tiver a palavra, que é o que queremos
     }
 
-    //TODO: Corrigir a anotação [Fact]
+    [Fact]
     public void TextoDeveTerminarComAPalavraProcurado()
     {
-        //TODO: Corrigir a variável "textoProcurado" seção Arrange
-
+        //TODO: Corrigir a variável "textoProcurado" seção Arrange {OK}
+        // basicamente procurará a ultima palavra e ele tem que terminar com parametro procurado
+        // que é textoProcurado, terminando corretamente irá retornar true para nosso assert. 
+        // Sendo a validação que estavamos esperando.
         // Arrange
         var texto = "Começo, meio e fim do texto procurado";
-        var textoProcurado = "teste";
+        var textoProcurado = "procurado";
 
         // Act
         var resultado = _validacoes.TextoTerminaCom(texto, textoProcurado);
